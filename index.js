@@ -11,7 +11,7 @@ function awsCredentialScraper (org, auth, cb) {
   assert.equal(typeof cb, 'function', new TypeError('cb must be a function'))
 
   const opts = ghutils.makeOptions(auth)
-  const uri = 'https://api.github.com/search/code?q=AWS_KEY+user:TabDigital'
+  const uri = 'https://api.github.com/search/code?q=AWS_KEY+user:' + org
   ghutils.ghget(auth, uri, opts, function (err, res) {
     if (err) return cb(err)
     if (res.total_count === 0) return cb(null, [ 'no results found' ])
