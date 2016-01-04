@@ -1,0 +1,14 @@
+Usage: github-credential-scraper [options] <orgname>
+
+Options:
+  -h, --help        Output usage information
+  -v, --version     Output version number
+  -t, --token       GitHub auth token
+  -u, --username    GitHub username
+
+Examples:
+  $ github-credential-scraper google
+  $ github-credential-scraper google -u foobar -t aeff0558afei45
+
+Docs: https://github.com/TabDigital/github-credential-scraper
+Bugs: https://github.com/TabDigital/github-credential-scraper/issues
