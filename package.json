@@ -1,7 +1,7 @@
 {
   "name": "github-credential-scraper",
   "version": "1.0.0",
-  "description": "Naive AWS credential scraper for git",
+  "description": "Naive GitHub credential scraper for git",
   "main": "index.js",
   "scripts": {
     "deps": "dependency-check . && dependency-check . --extra --no-dev",
@@ -12,6 +12,7 @@
   "keywords": [
     "scrape",
     "aws",
+    "github",
     "git",
     "credentials",
     "security",
