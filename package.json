@@ -1,0 +1,41 @@
+{
+  "name": "github-credential-scraper",
+  "version": "1.0.0",
+  "description": "Naive AWS credential scraper for git",
+  "main": "index.js",
+  "scripts": {
+    "deps": "dependency-check . && dependency-check . --extra --no-dev",
+    "test": "standard && npm run deps && NODE_ENV=test node test",
+    "test:cov": "standard && npm run deps && NODE_ENV=test istanbul cover test.js"
+  },
+  "repository": "TabDigital/github-credential-scraper",
+  "keywords": [
+    "scrape",
+    "aws",
+    "git",
+    "credentials",
+    "security",
+    "sec"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cliclopts": "^1.1.1",
+    "ghauth": "^3.0.0",
+    "ghutils": "^3.2.0",
+    "minimist": "^1.2.0",
+    "pump": "^1.0.1"
+  },
+  "devDependencies": {
+    "dependency-check": "^2.5.1",
+    "istanbul": "^0.4.1",
+    "standard": "^5.4.1",
+    "tape": "^4.4.0"
+  },
+  "files": [
+    "index.js",
+    "bin/*"
+  ],
+  "bin": {
+    "github-credential-scraper": "./bin/cli.js"
+  }
+}
