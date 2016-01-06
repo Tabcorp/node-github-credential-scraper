@@ -1,7 +1,14 @@
 # github-credential-scraper [![stability][0]][1]
 [![js-standard-style][10]][11]
 
-Naive credential scraper for GitHub.
+Naive credential scraper for GitHub. Looks for:
+- `AWS_KEY`
+- `AWS_ACCESS_KEY`
+- `AWS_SECRET_KEY`
+- `x-oauth-basic`
+- `id_rsa` files
+- `.key` files
+- `.pem` files
 
 ## Installation
 ```sh
