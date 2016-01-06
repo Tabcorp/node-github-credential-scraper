@@ -23,6 +23,7 @@
     "cliclopts": "^1.1.1",
     "ghauth": "^3.0.0",
     "ghutils": "^3.2.0",
+    "map-limit": "0.0.1",
     "minimist": "^1.2.0",
     "pump": "^1.0.1"
   },

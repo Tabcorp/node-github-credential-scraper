@@ -2,8 +2,8 @@
 const cliclopts = require('cliclopts')
 const minimist = require('minimist')
 const ghauth = require('ghauth')
-const pump = require('pump')
 const util = require('util')
+const pump = require('pump')
 const fs = require('fs')
 
 const pkg = require('../package.json')
@@ -43,26 +43,32 @@ if (argv.version) {
     process.stdout.write('Error: --user needs --token\n')
     process.exit(1)
   } else {
-    const repo = argv._[0]
-    const authData = { user: argv.u, token: argv.t }
-    main(repo, authData, function (err, data) {
-      if (err) return logErr(err)
-      data.forEach(function (url) {
-        process.stdout.write(url + '\n')
-      })
-    })
+    doMain({ user: argv.u, token: argv.t })
   }
 }
 
 function getCliAuth () {
   ghauth(authOpts, function (err, authData) {
     if (err) return logErr(err)
-    const repo = argv._[0]
-    main(repo, authData, function (err, data) {
-      if (err) return logErr(err)
-      data.forEach(function (url) {
-        process.stdout.write(url + '\n')
+    doMain(authData)
+  })
+}
+
+// execute the main function
+// obj -> null
+function doMain (authData) {
+  const repo = argv._[0]
+  main(repo, authData, function (err, data) {
+    if (err) return logErr(err)
+    if (!data || !data.length) {
+      return process.stdout.write('no results found\n')
+    }
+    data.forEach(function (obj) {
+      process.stdout.write('[ ' + obj.name + ' ]\n')
+      obj.data.forEach(function (url) {
+        process.stdout.write('  ' + url + '\n')
       })
+      process.stdout.write('\n')
     })
   })
 }
