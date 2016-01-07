@@ -50,7 +50,8 @@ awsCredentialScraper('TabDigital', auth, function (err, matches) {
 
 ## API
 ### awsCredentialScraper(orgname, auth, cb(err, matches))
-Create a new scraper that scrapes GitHub for an `orgname`.
+Create a new scraper that scrapes GitHub for an `orgname`. Data is returned as
+an array of object with a signature of `{ name: <string>, data: [<string>]}`
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
