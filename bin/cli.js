@@ -3,6 +3,7 @@ const cliclopts = require('cliclopts')
 const minimist = require('minimist')
 const ghauth = require('ghauth')
 const util = require('util')
+const path = require('path')
 const pump = require('pump')
 const fs = require('fs')
 
@@ -83,7 +84,7 @@ function logErr (err) {
 // print usage & exit
 // num? -> null
 function usage (exitCode) {
-  const rs = fs.createReadStream(__dirname + '/usage.txt')
+  const rs = fs.createReadStream(path.join(__dirname, '/usage.txt'))
   const ws = process.stdout
   pump(rs, ws, process.exit.bind(null, exitCode))
 }
